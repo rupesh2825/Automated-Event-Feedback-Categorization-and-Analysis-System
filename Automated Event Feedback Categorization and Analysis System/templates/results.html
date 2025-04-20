@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-white">
+    <div class="container mt-5">
+        <h2 class="mb-4">Feedback Analysis Summary</h2>
+        {% if summary %}
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Question</th>
+                    <th>Type of Feedback</th>
+                    <th>Summary Count Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in summary %}
+                <tr>
+                    <td>{{ item.question }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.display_summary }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="alert alert-warning">No feedback data found.</div>
+        {% endif %}
+        <a href="/" class="btn btn-secondary mt-4">Upload Another File</a>
+    </div>
+</body>
+</html>
